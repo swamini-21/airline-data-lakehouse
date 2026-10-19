@@ -105,6 +105,7 @@ question patterns, and known behavioral limitations are documented in
 aviation-performance/
 ├── README.md
 ├── .gitignore
+├── databricks.yml
 ├── notebooks/
 │   ├── 01_bronze_ingestion.ipynb
 │   ├── 02_silver_profiling.ipynb
@@ -116,6 +117,8 @@ aviation-performance/
 │   └── download_bts_ontime.py
 ├── genie/
 │   └── airline_flight_performance.geniespace.json
+├── dashboard/
+│   └── Aviation-Performance.lvdash.json
 └── docs/
     ├── data_dictionary.md
     ├── data_dictionary_silver.md
