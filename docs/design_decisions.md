@@ -1,4 +1,4 @@
-#Design Decisions, Findings & Limitations
+# Design Decisions, Findings & Limitations
 
 Companion document to the main [README](../README.md). Every non-obvious
 design choice, data quality finding, and known limitation across all
