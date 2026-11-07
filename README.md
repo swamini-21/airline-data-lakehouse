@@ -58,12 +58,12 @@ than merged on ingestion - see `docs/design_decisions.md` for why.
 | BTS TranStats - Reporting Carrier On-Time Performance | `bronze.flights_recent` | 2009-2026 | 110,841,156 | 109 + 3 metadata |
 
 Full column-level documentation, including the confirmed mapping between the
-two schemas, lives in [`docs/data_dictionary.md`](docs/data_dictionary.md).
+two schemas, lives in [`docs/bronze_data_dictionary.md`](docs/bronze_data_dictionary.md).
 The conformed Silver schema, including the mapping from both sources and all
 data quality reason codes, is documented in
-[`docs/data_dictionary_silver.md`](docs/data_dictionary_silver.md). Gold
+[`docs/silver_data_dictionary.md`](docs/silver_data_dictionary.md). Gold
 tables and Metric View measures are documented in
-[`docs/data_dictionary_gold.md`](docs/data_dictionary_gold.md).
+[`docs/gold_data_dictionary.md`](docs/gold_data_dictionary.md).
 
 Recent data (2009+) has no public API and is bulk-downloaded locally, then
 uploaded to a Unity Catalog Volume (`airline_analytics.bronze.landing`) via
@@ -120,9 +120,9 @@ aviation-performance/
 ├── dashboard/
 │   └── Aviation-Performance.lvdash.json
 └── docs/
-    ├── data_dictionary.md
-    ├── data_dictionary_silver.md
-    ├── data_dictionary_gold.md
+    ├── bronze_data_dictionary.md
+    ├── silver_data_dictionary.md
+    ├── gold_data_dictionary.md
     └── design_decisions.md
 
 ```
