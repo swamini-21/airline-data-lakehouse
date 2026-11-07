@@ -101,7 +101,6 @@ question patterns, and known behavioral limitations are documented in
 
 **Data quality issues caught and fixed**
 - **10x duplication in the historical source:** per-year counts (71M) didn't match real US flight volume (~7M). Deduplicated on business key: 358.7M → 35.9M rows.
-- **A silently dropped file during bulk upload:** caught by reconciling `COUNT(DISTINCT _source_file)` against the upload count (209 vs 210), then re-ingested.
 - **Air-time defects, 2004–2006:** JetBlue and Hawaiian records had uncorrected time-zone offsets that only showed up on eastbound legs. A second rule comparing air time with implied air time caught both directions, doubling the rows flagged for 2005.
 - **Airline code reuse:** `OH` belonged to two different airlines (Comair, then PSA after 7 dormant years). `dim_carrier` is time-bounded so history isn't misattributed.
 
