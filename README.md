@@ -28,6 +28,8 @@ dashboards, and a Genie natural-language query agent.
 
 ## Architecture
 
+![Airline lakehouse architecture](docs/Images/airline_lakehouse_architecture.png)
+
 ```
 airline_analytics (catalog)
 ├── bronze
@@ -82,6 +84,8 @@ Three published dashboard pages, built on `gold.mv_carrier_route_performance`:
 3. **Route Analysis** - busiest routes, best/worst on-time routes,
    distance-vs-delay scatter, sortable route stats table.
 
+![AI/BI dashboard: On-Time Performance Overview](docs/Images/Dashboard.png)
+
 ## Genie Agent
 
 A Genie Agent ("Airline Flight Performance") grounded in `gold.fct_flights`
@@ -90,6 +94,8 @@ carrier performance, route analysis, delay causes, and time trends -
 matching the scope of the AI/BI dashboards above. Design decisions, tested
 question patterns, and known behavioral limitations are documented in
 `docs/design_decisions.md`.
+
+![Genie agent answering a natural-language question](docs/Images/Genie.png)
 
 ## Roadmap
 
