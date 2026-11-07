@@ -97,6 +97,19 @@ question patterns, and known behavioral limitations are documented in
 
 ![Genie agent answering a natural-language question](docs/Images/Genie.png)
 
+## Key findings
+
+**Data quality issues caught and fixed**
+- **10x duplication in the historical source:** per-year counts (71M) didn't match real US flight volume (~7M). Deduplicated on business key: 358.7M → 35.9M rows.
+- **A silently dropped file during bulk upload:** caught by reconciling `COUNT(DISTINCT _source_file)` against the upload count (209 vs 210), then re-ingested.
+- **Air-time defects, 2004–2006:** JetBlue and Hawaiian records had uncorrected time-zone offsets that only showed up on eastbound legs. A second rule comparing air time with implied air time caught both directions, doubling the rows flagged for 2005.
+- **Airline code reuse:** `OH` belonged to two different airlines (Comair, then PSA after 7 dormant years). `dim_carrier` is time-bounded so history isn't misattributed.
+
+**What the data shows**
+- **The 2018 jump in flight counts came from a reporting change, not more traffic:** a DOT rule change added 6 carriers and ~40 airports, so volume jumps 27% while delay rates barely move. Counts aren't comparable across 2018; rates are.
+- **2020 was the only year planes arrived early on average:** cancellations hit 5.99%, more than 3x any other year, and average arrival delay was −4.99 minutes as volume fell 35%.
+- **Zero hard failures across 146.7M rows:** every real defect surfaced through the soft-warning data quality tier, which validates the two-tier design.
+
 ## Roadmap
 
 - [x] **Phase 1 - Bronze:** ingestion for both sources, verified and deduplicated
